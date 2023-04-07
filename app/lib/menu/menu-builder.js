@@ -32,6 +32,8 @@ const {
   reduce
 } = require('min-dash');
 
+const { t } = require('i18next');
+
 const browserOpen = require('../util/browser-open');
 
 const log = require('../log')('app:menu');
@@ -121,7 +123,7 @@ class MenuBuilder {
 
   appendFileMenu(submenu) {
     this.menu.append(new MenuItem({
-      label: 'File',
+      label: t('statusbar.file.name'),
       submenu: submenu
     }));
 
@@ -135,14 +137,14 @@ class MenuBuilder {
     submenuTemplate = [
       ...submenuTemplate,
       {
-        label: 'Open new file options...',
+        label: t('statusbar.file.newfile.options'),
         accelerator: 'CommandOrControl+N',
         click: () => app.emit('menu:action', 'emit-event', { type: 'createNewAction.open' })
       }
     ];
 
     this.menu.append(new MenuItem({
-      label: 'New File',
+      label: t('statusbar.file.newfile.name'),
       submenu: Menu.buildFromTemplate(submenuTemplate)
     }));
 
@@ -155,7 +157,7 @@ class MenuBuilder {
 
     if (!providedMenus.length) {
       return [ {
-        label: 'Empty',
+        label: t('empty'),
         enabled: false
       } ];
     }
@@ -191,7 +193,7 @@ class MenuBuilder {
 
   appendOpen() {
     this.menu.append(new MenuItem({
-      label: 'Open File...',
+      label: t('statusbar.file.openfile.name'),
       accelerator: 'CommandOrControl+O',
       click: function() {
         app.emit('menu:action', 'open-diagram');
@@ -205,7 +207,7 @@ class MenuBuilder {
 
   appendReopenLastTab() {
     this.menu.append(new MenuItem({
-      label: 'Reopen Last File',
+      label: t('statusbar.file.reopen.name'),
       enabled: this.options.state.lastTab,
       accelerator: 'CommandOrControl+Shift+T',
       click: function() {
@@ -218,7 +220,7 @@ class MenuBuilder {
 
   appendSaveFile() {
     this.menu.append(new MenuItem({
-      label: 'Save File',
+      label: t('statusbar.file.save.name'),
       enabled: this.options.state.save,
       accelerator: 'CommandOrControl+S',
       click: function() {
@@ -231,7 +233,7 @@ class MenuBuilder {
 
   appendSaveAsFile() {
     this.menu.append(new MenuItem({
-      label: 'Save File As..',
+      label: t('statusbar.file.saveas.name'),
       accelerator: 'CommandOrControl+Shift+S',
       enabled: this.options.state.save,
       click: function() {
@@ -244,7 +246,7 @@ class MenuBuilder {
 
   appendSaveAllFiles() {
     this.menu.append(new MenuItem({
-      label: 'Save All Files',
+      label: t('statusbar.file.saveall.name'),
       accelerator: 'CommandOrControl+Alt+S',
       enabled: this.options.state.save,
       click: function() {
@@ -260,7 +262,7 @@ class MenuBuilder {
     const enabled = exportState && exportState.length > 0;
 
     this.menu.append(new MenuItem({
-      label: 'Export As Image',
+      label: t('statusbar.file.exportas.name'),
       accelerator: 'CommandOrControl+Shift+E',
       enabled: enabled,
       click: function() {
@@ -275,7 +277,7 @@ class MenuBuilder {
 
   appendCloseTab() {
     this.menu.append(new MenuItem({
-      label: 'Close Tab',
+      label: t('statusbar.file.closetab.name'),
       enabled: canCloseTab(this.options.state),
       accelerator: 'CommandOrControl+W',
       click: function() {
@@ -284,7 +286,7 @@ class MenuBuilder {
     }));
 
     this.menu.append(new MenuItem({
-      label: 'Close All Tabs',
+      label: t('statusbar.file.closealltabs.name'),
       enabled: canCloseTab(this.options.state),
       click: function() {
         app.emit('menu:action', 'close-all-tabs');
@@ -292,7 +294,7 @@ class MenuBuilder {
     }));
 
     this.menu.append(new MenuItem({
-      label: 'Close Other Tabs',
+      label: t('statusbar.file.closeothertabs.name'),
       enabled: canSwitchTab(this.options.state),
       click: function() {
         app.emit('menu:action', 'close-other-tabs');
@@ -304,15 +306,15 @@ class MenuBuilder {
 
   appendSwitchTab(submenu) {
     this.menu.append(new MenuItem({
-      label: 'Switch Tab...',
+      label: t('statusbar.file.switch.name'),
       submenu: submenu || Menu.buildFromTemplate([ {
-        label: 'Select Next Tab',
+        label: t('statusbar.file.switch.next'),
         enabled: canSwitchTab(this.options.state),
         accelerator: 'Control+TAB',
         click: () => app.emit('menu:action', 'select-tab', 'next')
       },
       {
-        label: 'Select Previous Tab',
+        label: t('statusbar.file.switch.previous'),
         enabled: canSwitchTab(this.options.state),
         accelerator: 'Control+SHIFT+TAB',
         click: () => app.emit('menu:action', 'select-tab', 'previous')
@@ -327,7 +329,7 @@ class MenuBuilder {
 
   appendQuit() {
     this.menu.append(new MenuItem({
-      label: 'Quit',
+      label: t('statusbar.file.quit.name'),
       accelerator: 'CommandOrControl+Q',
       click: function() {
         app.emit('app:quit');
@@ -410,7 +412,7 @@ class MenuBuilder {
     }
 
     this.menu.append(new MenuItem({
-      label: 'Edit',
+      label: t('statusbar.edit.name'),
       submenu: subMenu
     }));
 
@@ -425,7 +427,7 @@ class MenuBuilder {
     const submenuTemplate = this.getWindowSubmenuTemplate();
 
     this.menu.append(new MenuItem({
-      label: 'Window',
+      label: t('statusbar.window.name'),
       submenu: Menu.buildFromTemplate(submenuTemplate)
     }));
 
@@ -443,13 +445,13 @@ class MenuBuilder {
     }
 
     submenuTemplate.push({
-      label: 'Reload',
+      label: t('statusbar.window.reload.name'),
       accelerator: 'CommandOrControl+R',
       click: (_, browserWindow) => browserWindow.reload()
     });
 
     submenuTemplate.push({
-      label: 'Toggle DevTools',
+      label: t('statusbar.window.toggledevtools.name'),
       accelerator: 'F12',
       click: (_, browserWindow) => {
         const isDevToolsOpened = browserWindow.isDevToolsOpened();
@@ -472,7 +474,7 @@ class MenuBuilder {
         }
       }
     }, {
-      label: 'Fullscreen',
+      label: t('statusbar.window.fullscreen.name'),
       accelerator: 'F11',
       click: (_, browserWindow) => {
         const isFullScreen = browserWindow.isFullScreen();
@@ -549,7 +551,7 @@ class MenuBuilder {
     // create actual menu entry, based on previously
     // constructed sub-menus
     this.menu.append(new MenuItem({
-      label: 'Plugins',
+      label: t('statusbar.plugins.name'),
       submenu: Menu.buildFromTemplate(submenuTemplate)
     }));
 
@@ -560,7 +562,7 @@ class MenuBuilder {
     const submenuTemplate = this.getHelpSubmenuTemplate();
 
     this.menu.append(new MenuItem({
-      label: 'Help',
+      label: t('statusbar.help.name'),
       submenu: Menu.buildFromTemplate(submenuTemplate)
     }));
 
@@ -570,34 +572,34 @@ class MenuBuilder {
   getHelpSubmenuTemplate() {
     const topPart = [
       {
-        label: 'Documentation',
+        label: t('statusbar.help.docs.name'),
         click: () => browserOpen('https://docs.camunda.io/docs/components/modeler/desktop-modeler/')
       },
       {
-        label: 'User Forum',
+        label: t('statusbar.help.userforum.name'),
         click: () => browserOpen('https://forum.camunda.io/c/modeler/')
       },
       {
-        label: 'Keyboard Shortcuts',
+        label: t('statusbar.help.shortcuts.name'),
         click: () => app.emit('menu:action', 'show-shortcuts')
       },
       getSeparatorTemplate(),
       {
-        label: 'Search Feature Requests',
+        label: t('statusbar.help.searchfeaturerequests.name'),
         click: () => browserOpen('https://github.com/camunda/camunda-modeler/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement')
       },
       {
-        label: 'Report Issue',
+        label: t('statusbar.help.reportissues.name'),
         click: () => app.emit('menu:action', 'emit-event', { type: 'reportFeedback.open' })
       },
       ... (app.flags && !app.flags.get('disable-remote-interaction')) ? [
         getSeparatorTemplate(),
         {
-          label: 'Privacy Preferences',
+          label: t('statusbar.help.privacypreferences.name'),
           click: () => app.emit('menu:action', 'emit-event', { type: 'show-privacy-preferences' })
         },
         {
-          label: 'Check for Updates',
+          label: t('statusbar.help.checkupdates.name'),
           click: () => app.emit('menu:action', 'emit-event', { type: 'updateChecks.execute' })
         },
       ] : [],
@@ -625,16 +627,16 @@ class MenuBuilder {
 
     const bottomPart = [
       {
-        label: 'FEEL Reference',
+        label: t('statusbar.help.feelreference.name'),
         click: () => browserOpen('https://docs.camunda.io/docs/components/modeler/feel/what-is-feel/')
       },
       getSeparatorTemplate(),
       {
-        label: 'Version ' + app.version,
+        label: `${t('statusbar.help.version.name')} ` + app.version,
         enabled: false
       },
       {
-        label: 'What\'s new',
+        label: t('statusbar.help.whatsnew.name'),
         click: () => app.emit('menu:action', 'emit-event', { type: 'versionInfo.open' })
       }
     ];
@@ -657,7 +659,7 @@ class MenuBuilder {
     const attrs = this.options.attrs;
 
     this.menu.append(new MenuItem({
-      label: 'Close Tab',
+      label: t('statusbar.context.closetab.name'),
       enabled: canCloseTab(this.options.state),
       accelerator: 'CommandOrControl+W',
       click: function() {
@@ -666,7 +668,7 @@ class MenuBuilder {
     }));
 
     this.menu.append(new MenuItem({
-      label: 'Close All Tabs',
+      label: t('statusbar.context.closealltabs.name'),
       enabled: canCloseTab(this.options.state),
       click: function() {
         app.emit('menu:action', 'close-all-tabs');
@@ -674,7 +676,7 @@ class MenuBuilder {
     }));
 
     this.menu.append(new MenuItem({
-      label: 'Close Other Tabs',
+      label: t('statusbar.context.closeothertabs.name'),
       enabled: canSwitchTab(this.options.state),
       click: function() {
         app.emit('menu:action', 'close-other-tabs', attrs);
@@ -692,7 +694,7 @@ class MenuBuilder {
     const tabFilePath = tabs.find(t => t.id === tabId).file.path;
 
     this.menu.append(new MenuItem({
-      label: 'Reveal in File Explorer',
+      label: t('statusbar.context.revealinfilexplorer.name'),
       enabled: !!tabFilePath,
       click: function() {
         app.emit('menu:action', 'reveal-tab', attrs);

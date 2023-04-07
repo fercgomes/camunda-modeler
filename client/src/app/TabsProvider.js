@@ -54,6 +54,8 @@ import BPMNIcon from '../../resources/icons/file-types/BPMN-16x16.svg';
 import DMNIcon from '../../resources/icons/file-types/DMN-16x16.svg';
 import FormIcon from '../../resources/icons/file-types/Form-16x16.svg';
 
+import { t } from 'i18next';
+
 const BPMN_HELP_MENU = [
   {
     label: 'BPMN 2.0 Tutorial',
@@ -183,7 +185,7 @@ export default class TabsProvider {
         },
         getNewFileMenu() {
           return [ {
-            label: 'BPMN diagram',
+            label: t('statusbar.file.newfile.bpmn'),
             group: 'Camunda Platform 8',
             action: 'create-cloud-bpmn-diagram'
           } ];
@@ -224,7 +226,7 @@ export default class TabsProvider {
         },
         getNewFileMenu() {
           return [ {
-            label: 'BPMN diagram',
+            label: t('statusbar.file.newfile.bpmn'),
             group: 'Camunda Platform 7',
             action: 'create-bpmn-diagram'
           } ];
@@ -272,7 +274,7 @@ export default class TabsProvider {
         },
         getNewFileMenu() {
           return [ {
-            label: 'CMMN diagram',
+            label: t('statusbar.file.newfile.cmmn'),
             group: 'Camunda Platform 7',
             action: 'create-cmmn-diagram'
           } ];
@@ -327,7 +329,7 @@ export default class TabsProvider {
         },
         getNewFileMenu() {
           return [ {
-            label: 'DMN diagram',
+            label: t('statusbar.file.newfile.dmn'),
             group: 'Camunda Platform 8',
             action: 'create-cloud-dmn-diagram'
           } ];
@@ -365,7 +367,7 @@ export default class TabsProvider {
         },
         getNewFileMenu() {
           return [ {
-            label: 'DMN diagram',
+            label: t('statusbar.file.newfile.dmn'),
             group: 'Camunda Platform 7',
             action: 'create-dmn-diagram'
           } ];
@@ -410,7 +412,7 @@ export default class TabsProvider {
         },
         getNewFileMenu() {
           return [ {
-            label: 'Form',
+            label: t('statusbar.file.newfile.form'),
             group: 'Camunda Platform 8',
             action: 'create-cloud-form'
           } ];
@@ -444,7 +446,7 @@ export default class TabsProvider {
         },
         getNewFileMenu() {
           return [ {
-            label: 'Form',
+            label: t('statusbar.file.newfile.form'),
             group: 'Camunda Platform 7',
             action: 'create-form'
           } ];

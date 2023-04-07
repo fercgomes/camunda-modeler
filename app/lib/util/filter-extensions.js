@@ -14,42 +14,44 @@ var {
   map
 } = require('min-dash');
 
+const { t } = require('i18next');
+
 
 var EXTENSIONS = {
   all: {
-    name: 'All files',
+    name: t('extensions.all.name'),
     extensions: [ '*' ]
   },
   supported: {
-    name: 'All supported',
+    name: t('extensions.supported.name'),
     extensions: [ 'bpmn', 'dmn', 'cmmn', 'xml' ]
   },
   images: {
-    name: 'All images',
+    name: t('extensions.images.name'),
     extensions: [ 'png', 'jpeg', 'svg' ]
   },
   bpmn: {
-    name: 'BPMN diagram',
+    name: t('extensions.bpmn.name'),
     extensions: [ 'bpmn', 'xml' ]
   },
   dmn: {
-    name: 'DMN table',
+    name: t('extensions.dmn.name'),
     extensions: [ 'dmn', 'xml' ]
   },
   cmmn: {
-    name: 'CMMN diagram',
+    name: t('extensions.cmmn.name'),
     extensions: [ 'cmmn', 'xml' ]
   },
   png: {
-    name: 'PNG Image',
+    name: t('extensions.png.name'),
     extensions: [ 'png' ]
   },
   jpeg: {
-    name: 'JPEG Image',
+    name: t('extensions.jpeg.name'),
     extensions: [ 'jpeg' ]
   },
   svg: {
-    name: 'SVG Image',
+    name: t('extensions.svg.name'),
     extensions: [ 'svg' ]
   }
 };

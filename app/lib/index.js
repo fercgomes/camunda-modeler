@@ -37,6 +37,11 @@ const WindowManager = require('./window-manager');
 const Workspace = require('./workspace');
 const ZeebeAPI = require('./zeebe-api');
 
+// i18n
+const i18next = require('i18next');
+const pt = require('../../resources/i18n/pt.json');
+
+
 const {
   readFile,
   readFileStats,
@@ -57,6 +62,17 @@ const clientLog = Log('client');
 
 bootstrapLogging();
 bootstrapEPIPESuppression();
+
+// i18next
+i18next.init({
+  lng: 'pt',
+  debug: true,
+  resources: {
+    pt: {
+      translation: pt
+    }
+  }
+});
 
 const name = app.name = 'Camunda Modeler';
 const version = app.version = require('../package').version;

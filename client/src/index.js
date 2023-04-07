@@ -38,6 +38,9 @@ import Flags from './util/Flags';
 
 import debug from 'debug';
 
+import i18next from 'i18next';
+import pt from '../../resources/i18n/pt.json';
+
 // This fix is necessary because dragular expects `global` to be defined, see
 // https://github.com/bevacqua/dragula/issues/602 for context
 window.global = window;
@@ -49,6 +52,15 @@ if (process.env.NODE_ENV !== 'production') {
 Metadata.init(metadata);
 Flags.init(flags);
 
+i18next.init({
+  lng: 'pt',
+  debug: true,
+  resources: {
+    pt: {
+      translation: pt
+    }
+  }
+});
 
 const isMac = backend.getPlatform() === 'darwin';
 

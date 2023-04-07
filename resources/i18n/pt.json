@@ -1,0 +1,146 @@
+{
+  "statusbar": {
+    "file": {
+      "name": "Arquivo",
+      "newfile": {
+        "name": "Novo arquivo",
+        "options": "Opções",
+        "bpmn": "Diagrama BPMN",
+        "cmmn": "Diagrama CMMN",
+        "dmn": "Diagrama DMN",
+        "form": "Formulário"
+      },
+      "openfile": {
+        "name": "Abrir arquivo"
+      },
+      "reopen": {
+        "name": "Reabrir último arquivo"
+      },
+      "save": {
+        "name": "Salvar arquivo"
+      },
+      "saveas": {
+        "name": "Salvar como"
+      },
+      "saveall": {
+        "name": "Salvar todos os arquivos"
+      },
+      "exportas": {
+        "name": "Exportar como imagem"
+      },
+      "closetab": {
+        "name": "Fechar aba"
+      },
+      "closealltabs": {
+        "name": "Fechar todas as abas"
+      },
+      "closeothertabs": {
+        "name": "Fechas as outras abas"
+      },
+      "switch": {
+        "name": "Trocar aba",
+        "next": "Selecionar próxima aba",
+        "previous": "Selecionar aba anterior"
+      },
+      "quit": {
+        "name": "Fechar"
+      }
+    },
+    "edit": {
+      "name": "Editar"
+    },
+    "window": {
+      "name": "Janela",
+      "reload": {
+        "name": "Recarregar"
+      },
+      "toggledevtools": {
+        "name": "Ativar DevTools"
+      },
+      "fullscreen": {
+        "name": "Tela cheia"
+      }
+    },
+    "plugins": {
+      "name": "Plugins"
+    },
+    "help": {
+      "name": "Ajuda",
+      "docs": {
+        "name": "Documentação"
+      },
+      "userforum": {
+        "name": "Fórum do Usuário"
+      },
+      "shortcuts": {
+        "name": "Atalhos"
+      },
+      "searchfeaturerequests": {
+        "name": "Buscar pedidos de features"
+      },
+      "reportissues": {
+        "name": "Reportar problemas"
+      },
+      "privacypreferences": {
+        "name": "Preferências de privacidades"
+      },
+      "checkupdates": {
+        "name": "Procurar atualizações"
+      },
+      "feelreference": {
+        "name": "Referência FEEL"
+      },
+      "version": {
+        "name": "Versão"
+      },
+      "whatsnew": {
+        "name": "O que há de novo"
+      }
+    },
+    "context": {
+      "closetab": {
+        "name": "Fechar aba"
+      },
+      "closealltabs": {
+        "name": "Fechar todas as abas"
+      },
+      "closeothertabs": {
+        "name": "Fechas as outras abas"
+      },
+      "revealinfileexplorer": {
+        "name": "Abrir no navegador de arquivos"
+      }
+    }
+  },
+  "empty": "Vazio",
+  "extensions": {
+    "all": {
+      "name": "Todos os arquivos"
+    },
+    "supported": {
+      "name": "Todos os arquivos suportados"
+    },
+    "images": {
+      "name": "Todas as imagens"
+    },
+    "bpmn": {
+      "name": "Diagrama BPMN"
+    },
+    "dmn": {
+      "name": "Tabela DMN"
+    },
+    "cmmn": {
+      "name": "Diagrama CMMN"
+    },
+    "png": {
+      "name": "Imagem PNG"
+    },
+    "jpeg": {
+      "name": "Imagem JPEG"
+    },
+    "svg": {
+      "name": "Imagem SVG"
+    }
+  }
+
+}

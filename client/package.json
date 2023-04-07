@@ -47,6 +47,7 @@
     "drag-tabs": "^2.3.0",
     "events": "^3.0.0",
     "formik": "^2.0.4",
+    "i18next": "^22.4.14",
     "ids": "^1.0.0",
     "inherits-browser": "^0.1.0",
     "min-dash": "^4.0.0",
