@@ -141,6 +141,85 @@
     "svg": {
       "name": "Imagem SVG"
     }
+  },
+  "colors": {
+    "default": "Padrão",
+    "blue": "Azul",
+    "orange": "Laranja",
+    "green": "Verde",
+    "red": "Vermelho",
+    "purple": "Roxo",
+    "set": "Escolher cor"
+  },
+  "edit": {
+    "align": {
+      "label": "Alinhar elementos",
+      "left": "Esquerda",
+      "right": "Direita",
+      "center": "Centro",
+      "top": "Topo",
+      "bottom": "Fundo",
+      "middle": "Meio",
+      "align": "Alianhar a(o)"
+    },
+    "distribute": {
+      "label": "Distribuir elementos",
+      "horizontally": "Horizontalmente",
+      "vertically": "Verticalmente"
+    }
+  },
+  "canvas": {
+    "move_to_origin": "Mover elementos para origem",
+    "move": "Mover canvas",
+    "move_selection": "Mover seleção"
+  },
+  "direction": {
+    "up": "Para cima",
+    "left": "Para à esquerda",
+    "down": "Para baixo",
+    "right": "Para à direita"
+  },
+  "accelerated": "Acelerado",
+  "copy": "Copiar",
+  "paste": "Colar",
+  "cut": "Recortar",
+  "find": "Encontrar",
+  "selection": {
+    "all": "Selecionar todos",
+    "remove": "Remover selecionados",
+    "append": "Adicionar elemento",
+    "create": "Criar elemento",
+    "replace": "Substituir elemento"
+  },
+  "tools": {
+    "hand": "Arrastar",
+    "lasso": "Lasso",
+    "space": "Espaçador",
+    "global_connect": "Conector global",
+    "edit": "Editar rótulo"
+  },
+  "undo": "Desfazer",
+  "redo": "Refazer",
+  "zoom": {
+    "in": "Adicionar zoom",
+    "out": "Remover zoom",
+    "actual": "Escalar para tamanho real",
+    "fit": "Escalar para conter diagrama"
+  },
+  "properties_panel": {
+    "toggle": "Ativar painel de propriedades",
+    "reset": "Resetar painel de propriedades"
+  },
+  "overview": {
+    "toggle": "Ativar visão geral",
+    "reset": "Resetar visão geral"
+  },
+  "initial_filename": "diagrama_{{suffix}}.bpmn",
+  "bpmn_tutorial": "Tutorial de BPMN 2.0",
+  "bpmn_reference": "Referência do BPMN",
+  "dmn_tutorial": "Tutorial de DMN",
+  "lint": {
+    "problems": "Inconsistências",
+    "empty": "Nenhuma inconsistência encontrada"
   }
-
 }

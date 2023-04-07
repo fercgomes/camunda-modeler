@@ -20,6 +20,8 @@ import ErrorIcon from '../../../../../resources/icons/Error.svg';
 import SuccessIcon from '../../../../../resources/icons/Success.svg';
 import WarningIcon from '../../../../../resources/icons/Warning.svg';
 
+import { t } from 'i18next';
+
 export default function LintingTab(props) {
   const {
     layout,
@@ -34,7 +36,7 @@ export default function LintingTab(props) {
 
   return <Panel.Tab
     id="linting"
-    label="Problems"
+    label={ t('lint.problems') }
     layout={ layout }
     number={ reports.length }
     onLayoutChanged={ onLayoutChanged }
@@ -45,7 +47,7 @@ export default function LintingTab(props) {
         <div className={ classnames(css.LintingTabItem, 'linting-tab-item--empty') }>
           <div className="linting-tab-item__header">
             <SuccessIcon width="16" height="16" />
-            <span className="linting-tab-item__label">No problems found.</span>
+            <span className="linting-tab-item__label">{t('lint.empty')}.</span>
           </div>
         </div>
       )

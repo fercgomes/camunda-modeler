@@ -8,7 +8,8 @@ An integrated modeling solution for BPMN, DMN, and Forms based on [bpmn.io](http
 
 - [ ] Internationalization
   - [ ] English support
-  - [ ] Brazilian portuguese support
+  - [ ] Brazilian portuguese support (in progress)
+  - [ ] bpmn-js, dmn-js, form-js are external dependencies, so they can't be directly translated. They would have to be forked, or included directly in this repo.
 - [ ] Strong support for BPMN best practices
 
 ## Building the Application

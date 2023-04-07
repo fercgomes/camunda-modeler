@@ -8,6 +8,8 @@
  * except in compliance with the MIT License.
  */
 
+import { t } from 'i18next';
+
 export default function getBpmnWindowMenu(state) {
   return [
     ...getZoomEntries(state),
@@ -18,22 +20,22 @@ export default function getBpmnWindowMenu(state) {
 
 function getZoomEntries({ zoom }) {
   return zoom ? [ {
-    label: 'Zoom In',
+    label: t('zoom.in'),
 
     // We use Ctrl + = instead of Ctrl + + which works as expected but is shown incorrectly.
     // cf. https://github.com/camunda/camunda-modeler/issues/2286
     accelerator: 'CommandOrControl+=',
     action: 'zoomIn'
   }, {
-    label: 'Zoom Out',
+    label: t('zoom.out'),
     accelerator: 'CommandOrControl+-',
     action: 'zoomOut'
   }, {
-    label: 'Zoom to Actual Size',
+    label: t('zoom.actual'),
     accelerator: 'CommandOrControl+0',
     action: 'resetZoom'
   }, {
-    label: 'Zoom to Fit Diagram',
+    label: t('zoom.fit'),
     accelerator: 'CommandOrControl+1',
     action: 'zoomFit'
   }, {
@@ -43,11 +45,11 @@ function getZoomEntries({ zoom }) {
 
 function getPropertiesPanelEntries({ propertiesPanel }) {
   return propertiesPanel ? [ {
-    label: 'Toggle Properties Panel',
+    label: t('properties_panel.toggle'),
     accelerator: 'CommandOrControl+P',
     action: 'toggleProperties'
   }, {
-    label: 'Reset Properties Panel',
+    label: t('properties_panel.reset'),
     accelerator: 'CommandOrControl+Shift+P',
     action: 'resetProperties'
   } ] : [];
@@ -55,11 +57,11 @@ function getPropertiesPanelEntries({ propertiesPanel }) {
 
 function getOverviewEntries({ overview }) {
   return overview ? [ {
-    label: 'Toggle Overview',
+    label: t('overview.toggle'),
     accelerator: 'CommandOrControl+P',
     action: 'toggleOverview'
   }, {
-    label: 'Reset Overview',
+    label: t('overview.reset'),
     accelerator: 'CommandOrControl+Shift+P',
     action: 'resetOverview'
   } ] : [];

@@ -10,31 +10,33 @@
 
 import Flags, { DISABLE_ADJUST_ORIGIN } from '../../util/Flags';
 
+import { t } from 'i18next';
+
 const SPACE_KEY = ' ';
 
 const COLORS = [
   {
-    title: 'Default',
+    title: t('colors.default'),
     fill: undefined,
     stroke: undefined
   }, {
-    title: 'Blue',
+    title: t('colors.blue'),
     fill: 'rgb(187, 222, 251)',
     stroke: 'rgb(30, 136, 229)'
   }, {
-    title: 'Orange',
+    title: t('colors.orange'),
     fill: 'rgb(255, 224, 178)',
     stroke: 'rgb(251, 140, 0)'
   }, {
-    title: 'Green',
+    title: t('colors.green'),
     fill: 'rgb(200, 230, 201)',
     stroke: 'rgb(67, 160, 71)'
   }, {
-    title: 'Red',
+    title: t('colors.red'),
     fill: 'rgb(255, 205, 210)',
     stroke: 'rgb(229, 57, 53)'
   }, {
-    title: 'Purple',
+    title: t('colors.purple'),
     fill: 'rgb(225, 190, 231)',
     stroke: 'rgb(142, 36, 170)'
   } ];
@@ -44,11 +46,11 @@ export function getAlignDistributeEntries({
   distribute
 }) {
   return [ {
-    label: 'Align Elements',
+    label: t('edit.align.label'),
     enabled: align,
-    submenu: [ 'Left', 'Right', 'Center', 'Top', 'Bottom', 'Middle' ].map(direction => {
+    submenu: [ t('edit.align.left'), t('edit.align.right'), t('edit.align.center'), t('edit.align.top'), t('edit.align.bottom'), t('edit.align.middle') ].map(direction => {
       return {
-        label: `Align ${direction}`,
+        label: `${t('edit.align.align')} ${direction}`,
         enabled: align,
         action: 'alignElements',
         options: {
@@ -57,17 +59,17 @@ export function getAlignDistributeEntries({
       };
     })
   }, {
-    label: 'Distribute Elements',
+    label: t('edit.distribute.label'),
     enabled: distribute,
     submenu: [ {
-      label: 'Distribute Horizontally',
+      label: t('edit.distribute.horizontally'),
       enabled: distribute,
       action: 'distributeElements',
       options: {
         type: 'horizontal'
       }
     }, {
-      label: 'Distribute Vertically',
+      label: t('edit.distribute.vertically'),
       enabled: distribute,
       action: 'distributeElements',
       options: {
@@ -82,7 +84,7 @@ export function getColorEntries({
   setColor
 }) {
   return [ {
-    label: 'Set Color',
+    label: t('colors.set'),
     enabled: setColor,
     submenu: COLORS.map(color => {
       return {
@@ -108,7 +110,7 @@ export function getCanvasEntries({
 
   if (isDefined(moveToOrigin) && Flags.get(DISABLE_ADJUST_ORIGIN)) {
     menuEntries.push({
-      label: 'Move Elements To Origin',
+      label: t('canvas.move_to_origin'),
       accelerator: 'CommandOrControl+Shift+O',
       enabled: moveToOrigin,
       action: 'moveToOrigin'
@@ -118,9 +120,9 @@ export function getCanvasEntries({
   return [
     ...menuEntries,
     {
-      label: 'Move Canvas',
+      label: t('canvas.move'),
       enabled: moveCanvas,
-      submenu: [ 'Up', 'Left', 'Down', 'Right' ].reduce((entries, direction) => {
+      submenu: [ t('direction.up'), t('direction.left'), t('direction.down'), t('direction.right') ].reduce((entries, direction) => {
         return [
           ...entries,
           {
@@ -134,7 +136,7 @@ export function getCanvasEntries({
             }
           },
           {
-            label: `${direction} (Accelerated)`,
+            label: `${direction} (${t('accelerated')})`,
             accelerator: `CommandOrControl + Shift + ${direction}`,
             enabled: moveCanvas,
             action: 'moveCanvas',
@@ -147,9 +149,9 @@ export function getCanvasEntries({
       }, [])
     },
     {
-      label: 'Move Selection',
+      label: t('canvas.move_selection'),
       enabled: moveSelection,
-      submenu: [ 'Up', 'Left', 'Down', 'Right' ].reduce((entries, direction) => {
+      submenu: [ t('direction.up'), t('direction.left'), t('direction.down'), t('direction.right') ].reduce((entries, direction) => {
         return [
           ...entries,
           {
@@ -162,7 +164,7 @@ export function getCanvasEntries({
             }
           },
           {
-            label: `${direction} (Accelerated)`,
+            label: `${direction} (${t('accelerated')})`,
             accelerator: `Shift + ${direction}`,
             enabled: moveSelection,
             action: 'moveSelection',
@@ -183,17 +185,17 @@ export function getCopyCutPasteEntries({
   paste
 }) {
   return [ {
-    label: 'Copy',
+    label: t('copy'),
     accelerator: 'CommandOrControl + C',
     enabled: copy,
     action: 'copy',
   }, {
-    label: 'Cut',
+    label: t('cut'),
     accelerator: 'CommandOrControl + X',
     enabled: cut,
     action: 'cut'
   }, {
-    label: 'Paste',
+    label: t('paste'),
     accelerator: 'CommandOrControl + V',
     enabled: paste,
     action: 'paste'
@@ -202,15 +204,15 @@ export function getCopyCutPasteEntries({
 
 export function getDefaultCopyCutPasteEntries(inputActive) {
   return [ {
-    label: 'Copy',
+    label: t('copy'),
     role: 'copy',
     enabled: inputActive
   }, {
-    label: 'Cut',
+    label: t('cut'),
     role: 'cut',
     enabled: inputActive
   }, {
-    label: 'Paste',
+    label: t('paste'),
     role: 'paste',
     enabled: inputActive
   } ];
@@ -220,7 +222,7 @@ export function getDiagramFindEntries({
   find
 }) {
   return [ {
-    label: 'Find',
+    label: t('find'),
     accelerator: 'CommandOrControl+F',
     enabled: find,
     action: 'find'
@@ -240,7 +242,7 @@ export function getSelectionEntries({
 
   if (isDefined(selectAll)) {
     menuEntries.push({
-      label: 'Select All',
+      label: t('selection.all'),
       accelerator: 'CommandOrControl + A',
       enabled: selectAll,
       action: 'selectElements',
@@ -250,7 +252,7 @@ export function getSelectionEntries({
 
   if (isDefined(removeSelected)) {
     menuEntries.push({
-      label: 'Remove Selected',
+      label: t('selection.remove'),
       accelerator: 'Delete',
       enabled: removeSelected,
       action: 'removeSelection',
@@ -260,7 +262,7 @@ export function getSelectionEntries({
 
   if (isDefined(appendElement)) {
     menuEntries.push({
-      label: 'Append Element',
+      label: t('selection.append'),
       accelerator: 'A',
       enabled: appendElement,
       action: 'appendElement'
@@ -269,7 +271,7 @@ export function getSelectionEntries({
 
   if (isDefined(createElement)) {
     menuEntries.push({
-      label: 'Create Element',
+      label: t('selection.create'),
       accelerator: 'N',
       enabled: createElement,
       action: 'createElement',
@@ -281,7 +283,7 @@ export function getSelectionEntries({
 
   if (isDefined(replaceElement)) {
     menuEntries.push({
-      label: 'Replace Element',
+      label: t('selection.replace'),
       accelerator: 'R',
       enabled: replaceElement,
       action: 'replaceElement'
@@ -303,7 +305,7 @@ export function getToolEntries({
 
   if (isDefined(handTool)) {
     menuEntries.push({
-      label: 'Hand Tool',
+      label: t('tools.hand'),
       accelerator: 'H',
       enabled: handTool,
       action: 'handTool'
@@ -322,7 +324,7 @@ export function getToolEntries({
 
   if (isDefined(lassoTool)) {
     menuEntries.push({
-      label: 'Lasso Tool',
+      label: t('tools.lasso'),
       accelerator: 'L',
       enabled: lassoTool,
       action: 'lassoTool'
@@ -331,7 +333,7 @@ export function getToolEntries({
 
   if (isDefined(spaceTool)) {
     menuEntries.push({
-      label: 'Space Tool',
+      label: t('tools.space'),
       accelerator: 'S',
       enabled: spaceTool,
       action: 'spaceTool'
@@ -340,7 +342,7 @@ export function getToolEntries({
 
   if (isDefined(globalConnectTool)) {
     menuEntries.push({
-      label: 'Global Connect Tool',
+      label: t('tools.global_connect'),
       accelerator: 'C',
       enabled: globalConnectTool,
       action: 'globalConnectTool'
@@ -349,7 +351,7 @@ export function getToolEntries({
 
   if (isDefined(editLabel)) {
     menuEntries.push({
-      label: 'Edit Label',
+      label: t('tools.edit'),
       accelerator: 'E',
       enabled: editLabel,
       action: 'directEditing'
@@ -366,12 +368,12 @@ export function getUndoRedoEntries({
   undo
 }) {
   return [ {
-    label: 'Undo',
+    label: t('undo'),
     accelerator: 'CommandOrControl+Z',
     enabled: undo,
     action: 'undo'
   }, {
-    label: 'Redo',
+    label: t('redo'),
     accelerator: 'CommandOrControl+Y',
     enabled: redo,
     action: 'redo'
@@ -380,11 +382,11 @@ export function getUndoRedoEntries({
 
 export function getDefaultUndoRedoEntries(inputActive) {
   return [ {
-    label: 'Undo',
+    label: t('undo'),
     role: 'undo',
     enabled: inputActive
   }, {
-    label: 'Redo',
+    label: t('redo'),
     role: 'redo',
     enabled: inputActive
   } ];

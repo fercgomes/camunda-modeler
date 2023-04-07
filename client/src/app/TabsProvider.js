@@ -62,7 +62,7 @@ const BPMN_HELP_MENU = [
     action: 'https://camunda.org/bpmn/tutorial/'
   },
   {
-    label: 'BPMN Modeling Reference',
+    label: 'BPMN Reference',
     action: 'https://camunda.org/bpmn/reference/'
   }
 ];
@@ -178,7 +178,7 @@ export default class TabsProvider {
           return cloudBpmnDiagram;
         },
         getInitialFilename(suffix) {
-          return `diagram_${suffix}.bpmn`;
+          return t('initial_filaename', { suffix: suffix });
         },
         getHelpMenu() {
           return BPMN_HELP_MENU;
